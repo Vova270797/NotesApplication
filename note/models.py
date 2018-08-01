@@ -3,15 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Note(models.Model):
-    ''' Клас заміток
-    '''
 
     text = models.TextField("Текст нотатки")
-    created = models.DateTimeField("Дата створення", auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Нотатка"
-        verbose_name_plural = "Нотатки"
+    number_of_unique = models.IntegerField(default=0)
 
     def __str__(self):
         if len(self.text) < 20 :

@@ -5,7 +5,8 @@
      <button type="submit">Створити</button>
 
  </form>
-{% for note in notes %}
-    <h3> {{ note.text }}</h3>
-    Додано : {{note.created}}<br>
+{% for note in note_list %}
+    <div><h3> {{ note.text }}</h3></div>
+    <div>{{ note.number_of_unique }}</div>
+
 {% endfor %}
