@@ -1,0 +1,13 @@
+from .base_settings import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "note",
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '',
+        'OPTIONS': {'charset': 'utf8mb4'}
+    }
+}

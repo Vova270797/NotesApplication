@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
-from note.models import Note
-from note.forms import NotesForm
+from django.shortcuts import render, redirect, HttpResponse
 from django.views.generic import View
-# Create your views here.
+
+from main.forms import NotesForm
+from main.models import Note
 
 
 class Home(View):
@@ -12,7 +12,7 @@ class Home(View):
         form = NotesForm()
         context = {"note_list": note_list, "form": form}
 
-        return render(request,  "note/note_list.html", context)
+        return render(request, "note/note_list.html", context)
 
     def post(self, request):
         form = NotesForm(request.POST)
@@ -21,3 +21,5 @@ class Home(View):
             form.number_of_unique = len(set(form.text.split()))
             form.save()
             return redirect("home")
+
+        return HttpResponse("Invalid data!")
